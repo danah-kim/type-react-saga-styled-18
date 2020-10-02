@@ -1,12 +1,32 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
+import App from './App';
+import GlobalStyles from './GlobalStyles';
+import * as serviceWorker from './serviceWorker';
+
+import i18next from 'lib/i18n';
+import supportLanguages from 'lib/language';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import 'normalize.css';
+import { Provider } from 'react-redux';
+import { createStore } from 'store';
+import { ThemeProvider } from 'styled-components';
+import theme from 'styles/theme';
+
+const store = createStore();
+const language = supportLanguages.getLocale(window.navigator.language);
+i18next.changeLanguage(language);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

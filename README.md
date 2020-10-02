@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project Stack
+- react
+- react-router
+- react-router-dom
+- typescript
+- styled-component
+- i18next
+- redux
+- redux-saga
+- moment
+- normalize.css
+- babel
+- axios
+- react-app-rewired
+- eslint
+
 ## Available Scripts
 
 In the project directory, you can run:
