@@ -7,33 +7,33 @@ import messages from 'translation';
 export const fallbackLng = 'en';
 
 i18next
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        fallbackLng,
-        debug: process.env.NODE_ENV !== 'production',
-        resources: {
-            en: {
-                translation: messages.en,
-            },
-            ja: {
-                translation: messages.ja,
-            },
-            ko: {
-                translation: messages.ko,
-            },
-        },
-        interpolation: {
-            escapeValue: false,
-        },
-    });
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng,
+    debug: process.env.NODE_ENV !== 'production',
+    resources: {
+      en: {
+        translation: messages.en,
+      },
+      ja: {
+        translation: messages.ja,
+      },
+      ko: {
+        translation: messages.ko,
+      },
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 i18next.on('languageChanged', (lng) => {
-    updateLocale(lng.substring(0, 2), {
-        week: {
-            dow: 1,
-        },
-    });
+  updateLocale(lng.substring(0, 2), {
+    week: {
+      dow: 1,
+    },
+  });
 });
 
 export default i18next;

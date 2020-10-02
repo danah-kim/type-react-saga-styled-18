@@ -1,3 +1,4 @@
+import PageTemplate from 'components/PageTemplate';
 import useTypedSelector from 'hooks/useTypedSelector';
 import i18next from 'lib/i18n';
 import logo from 'logo.svg';
@@ -56,17 +57,19 @@ function Home() {
   }, [dispatch, name]);
 
   return (
-    <AppComponent>
-      <AppHeader>
-        <AppLogo src={logo} alt="logo" />
-        <p>
-          {i18next.t('hello')} {name || ''} Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <AppLogoLink href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </AppLogoLink>
-      </AppHeader>
-    </AppComponent>
+    <PageTemplate>
+      <AppComponent>
+        <AppHeader>
+          <AppLogo src={logo} alt="logo" />
+          <p>
+            {i18next.t('hello')} {name || ''} Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <AppLogoLink href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+            Learn React
+          </AppLogoLink>
+        </AppHeader>
+      </AppComponent>
+    </PageTemplate>
   );
 }
 
